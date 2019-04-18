@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.seiei.gmerp.dao.ProofingColorMapper">
+  <resultMap id="BaseResultMap" type="top.seiei.gmerp.bean.ProofingColor">
+    <id column="Guid" jdbcType="VARCHAR" property="guid" />
+    <result column="Serialno" jdbcType="VARCHAR" property="serialno" />
+    <result column="BUser" jdbcType="VARCHAR" property="buser" />
+    <result column="BTime" jdbcType="TIMESTAMP" property="btime" />
+    <result column="EUser" jdbcType="VARCHAR" property="euser" />
+    <result column="ETime" jdbcType="TIMESTAMP" property="etime" />
+    <result column="Memodl" jdbcType="VARCHAR" property="memodl" />
+    <result column="D_sn" jdbcType="INTEGER" property="dSn" />
+    <result column="Color" jdbcType="VARCHAR" property="color" />
+    <result column="ColorNo" jdbcType="VARCHAR" property="colorno" />
+    <result column="FixColorB" jdbcType="VARCHAR" property="fixcolorb" />
+    <result column="FixColorNoB" jdbcType="VARCHAR" property="fixcolornob" />
+    <result column="FixColorC" jdbcType="VARCHAR" property="fixcolorc" />
+    <result column="FixColorNoC" jdbcType="VARCHAR" property="fixcolornoc" />
+    <result column="FixColorD" jdbcType="VARCHAR" property="fixcolord" />
+    <result column="FixColorNoD" jdbcType="VARCHAR" property="fixcolornod" />
+    <result column="FixColorE" jdbcType="VARCHAR" property="fixcolore" />
+    <result column="FixColorNoE" jdbcType="VARCHAR" property="fixcolornoe" />
+    <result column="FixColorF" jdbcType="VARCHAR" property="fixcolorf" />
+    <result column="FixColorNoF" jdbcType="VARCHAR" property="fixcolornof" />
+    <result column="FixColorG" jdbcType="VARCHAR" property="fixcolorg" />
+    <result column="FixColorNoG" jdbcType="VARCHAR" property="fixcolornog" />
+    <result column="FixColorH" jdbcType="VARCHAR" property="fixcolorh" />
+    <result column="FixColorNoH" jdbcType="VARCHAR" property="fixcolornoh" />
+    <result column="Size1" jdbcType="INTEGER" property="size1" />
+    <result column="Size2" jdbcType="INTEGER" property="size2" />
+    <result column="Size3" jdbcType="INTEGER" property="size3" />
+    <result column="Size4" jdbcType="INTEGER" property="size4" />
+    <result column="Size5" jdbcType="INTEGER" property="size5" />
+    <result column="Size6" jdbcType="INTEGER" property="size6" />
+    <result column="Size7" jdbcType="INTEGER" property="size7" />
+    <result column="Size8" jdbcType="INTEGER" property="size8" />
+    <result column="Size9" jdbcType="INTEGER" property="size9" />
+    <result column="Size10" jdbcType="INTEGER" property="size10" />
+    <result column="Total" jdbcType="INTEGER" property="total" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Guid, Serialno, BUser, BTime, EUser, ETime, Memodl, D_sn, Color, ColorNo, FixColorB, 
+    FixColorNoB, FixColorC, FixColorNoC, FixColorD, FixColorNoD, FixColorE, FixColorNoE, 
+    FixColorF, FixColorNoF, FixColorG, FixColorNoG, FixColorH, FixColorNoH, Size1, Size2, 
+    Size3, Size4, Size5, Size6, Size7, Size8, Size9, Size10, Total
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from PDM_Proofing_Color
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from PDM_Proofing_Color
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="top.seiei.gmerp.bean.ProofingColor">
+    insert into PDM_Proofing_Color (Guid, Serialno, BUser, 
+      BTime, EUser, ETime, 
+      Memodl, D_sn, Color, 
+      ColorNo, FixColorB, FixColorNoB, 
+      FixColorC, FixColorNoC, FixColorD, 
+      FixColorNoD, FixColorE, FixColorNoE, 
+      FixColorF, FixColorNoF, FixColorG, 
+      FixColorNoG, FixColorH, FixColorNoH, 
+      Size1, Size2, Size3, 
+      Size4, Size5, Size6, 
+      Size7, Size8, Size9, 
+      Size10, Total)
+    values (#{guid,jdbcType=VARCHAR}, #{serialno,jdbcType=VARCHAR}, #{buser,jdbcType=VARCHAR}, 
+      #{btime,jdbcType=TIMESTAMP}, #{euser,jdbcType=VARCHAR}, #{etime,jdbcType=TIMESTAMP}, 
+      #{memodl,jdbcType=VARCHAR}, #{dSn,jdbcType=INTEGER}, #{color,jdbcType=VARCHAR}, 
+      #{colorno,jdbcType=VARCHAR}, #{fixcolorb,jdbcType=VARCHAR}, #{fixcolornob,jdbcType=VARCHAR}, 
+      #{fixcolorc,jdbcType=VARCHAR}, #{fixcolornoc,jdbcType=VARCHAR}, #{fixcolord,jdbcType=VARCHAR}, 
+      #{fixcolornod,jdbcType=VARCHAR}, #{fixcolore,jdbcType=VARCHAR}, #{fixcolornoe,jdbcType=VARCHAR}, 
+      #{fixcolorf,jdbcType=VARCHAR}, #{fixcolornof,jdbcType=VARCHAR}, #{fixcolorg,jdbcType=VARCHAR}, 
+      #{fixcolornog,jdbcType=VARCHAR}, #{fixcolorh,jdbcType=VARCHAR}, #{fixcolornoh,jdbcType=VARCHAR}, 
+      #{size1,jdbcType=INTEGER}, #{size2,jdbcType=INTEGER}, #{size3,jdbcType=INTEGER}, 
+      #{size4,jdbcType=INTEGER}, #{size5,jdbcType=INTEGER}, #{size6,jdbcType=INTEGER}, 
+      #{size7,jdbcType=INTEGER}, #{size8,jdbcType=INTEGER}, #{size9,jdbcType=INTEGER}, 
+      #{size10,jdbcType=INTEGER}, #{total,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="top.seiei.gmerp.bean.ProofingColor">
+    insert into PDM_Proofing_Color
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="guid != null">
+        Guid,
+      </if>
+      <if test="serialno != null">
+        Serialno,
+      </if>
+      <if test="buser != null">
+        BUser,
+      </if>
+      <if test="btime != null">
+        BTime,
+      </if>
+      <if test="euser != null">
+        EUser,
+      </if>
+      <if test="etime != null">
+        ETime,
+      </if>
+      <if test="memodl != null">
+        Memodl,
+      </if>
+      <if test="dSn != null">
+        D_sn,
+      </if>
+      <if test="color != null">
+        Color,
+      </if>
+      <if test="colorno != null">
+        ColorNo,
+      </if>
+      <if test="fixcolorb != null">
+        FixColorB,
+      </if>
+      <if test="fixcolornob != null">
+        FixColorNoB,
+      </if>
+      <if test="fixcolorc != null">
+        FixColorC,
+      </if>
+      <if test="fixcolornoc != null">
+        FixColorNoC,
+      </if>
+      <if test="fixcolord != null">
+        FixColorD,
+      </if>
+      <if test="fixcolornod != null">
+        FixColorNoD,
+      </if>
+      <if test="fixcolore != null">
+        FixColorE,
+      </if>
+      <if test="fixcolornoe != null">
+        FixColorNoE,
+      </if>
+      <if test="fixcolorf != null">
+        FixColorF,
+      </if>
+      <if test="fixcolornof != null">
+        FixColorNoF,
+      </if>
+      <if test="fixcolorg != null">
+        FixColorG,
+      </if>
+      <if test="fixcolornog != null">
+        FixColorNoG,
+      </if>
+      <if test="fixcolorh != null">
+        FixColorH,
+      </if>
+      <if test="fixcolornoh != null">
+        FixColorNoH,
+      </if>
+      <if test="size1 != null">
+        Size1,
+      </if>
+      <if test="size2 != null">
+        Size2,
+      </if>
+      <if test="size3 != null">
+        Size3,
+      </if>
+      <if test="size4 != null">
+        Size4,
+      </if>
+      <if test="size5 != null">
+        Size5,
+      </if>
+      <if test="size6 != null">
+        Size6,
+      </if>
+      <if test="size7 != null">
+        Size7,
+      </if>
+      <if test="size8 != null">
+        Size8,
+      </if>
+      <if test="size9 != null">
+        Size9,
+      </if>
+      <if test="size10 != null">
+        Size10,
+      </if>
+      <if test="total != null">
+        Total,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="guid != null">
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="buser != null">
+        #{buser,jdbcType=VARCHAR},
+      </if>
+      <if test="btime != null">
+        #{btime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="euser != null">
+        #{euser,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memodl != null">
+        #{memodl,jdbcType=VARCHAR},
+      </if>
+      <if test="dSn != null">
+        #{dSn,jdbcType=INTEGER},
+      </if>
+      <if test="color != null">
+        #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="colorno != null">
+        #{colorno,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorb != null">
+        #{fixcolorb,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornob != null">
+        #{fixcolornob,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorc != null">
+        #{fixcolorc,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornoc != null">
+        #{fixcolornoc,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolord != null">
+        #{fixcolord,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornod != null">
+        #{fixcolornod,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolore != null">
+        #{fixcolore,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornoe != null">
+        #{fixcolornoe,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorf != null">
+        #{fixcolorf,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornof != null">
+        #{fixcolornof,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorg != null">
+        #{fixcolorg,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornog != null">
+        #{fixcolornog,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorh != null">
+        #{fixcolorh,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornoh != null">
+        #{fixcolornoh,jdbcType=VARCHAR},
+      </if>
+      <if test="size1 != null">
+        #{size1,jdbcType=INTEGER},
+      </if>
+      <if test="size2 != null">
+        #{size2,jdbcType=INTEGER},
+      </if>
+      <if test="size3 != null">
+        #{size3,jdbcType=INTEGER},
+      </if>
+      <if test="size4 != null">
+        #{size4,jdbcType=INTEGER},
+      </if>
+      <if test="size5 != null">
+        #{size5,jdbcType=INTEGER},
+      </if>
+      <if test="size6 != null">
+        #{size6,jdbcType=INTEGER},
+      </if>
+      <if test="size7 != null">
+        #{size7,jdbcType=INTEGER},
+      </if>
+      <if test="size8 != null">
+        #{size8,jdbcType=INTEGER},
+      </if>
+      <if test="size9 != null">
+        #{size9,jdbcType=INTEGER},
+      </if>
+      <if test="size10 != null">
+        #{size10,jdbcType=INTEGER},
+      </if>
+      <if test="total != null">
+        #{total,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top.seiei.gmerp.bean.ProofingColor">
+    update PDM_Proofing_Color
+    <set>
+      <if test="serialno != null">
+        Serialno = #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="buser != null">
+        BUser = #{buser,jdbcType=VARCHAR},
+      </if>
+      <if test="btime != null">
+        BTime = #{btime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="euser != null">
+        EUser = #{euser,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        ETime = #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="memodl != null">
+        Memodl = #{memodl,jdbcType=VARCHAR},
+      </if>
+      <if test="dSn != null">
+        D_sn = #{dSn,jdbcType=INTEGER},
+      </if>
+      <if test="color != null">
+        Color = #{color,jdbcType=VARCHAR},
+      </if>
+      <if test="colorno != null">
+        ColorNo = #{colorno,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorb != null">
+        FixColorB = #{fixcolorb,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornob != null">
+        FixColorNoB = #{fixcolornob,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorc != null">
+        FixColorC = #{fixcolorc,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornoc != null">
+        FixColorNoC = #{fixcolornoc,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolord != null">
+        FixColorD = #{fixcolord,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornod != null">
+        FixColorNoD = #{fixcolornod,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolore != null">
+        FixColorE = #{fixcolore,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornoe != null">
+        FixColorNoE = #{fixcolornoe,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorf != null">
+        FixColorF = #{fixcolorf,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornof != null">
+        FixColorNoF = #{fixcolornof,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorg != null">
+        FixColorG = #{fixcolorg,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornog != null">
+        FixColorNoG = #{fixcolornog,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolorh != null">
+        FixColorH = #{fixcolorh,jdbcType=VARCHAR},
+      </if>
+      <if test="fixcolornoh != null">
+        FixColorNoH = #{fixcolornoh,jdbcType=VARCHAR},
+      </if>
+      <if test="size1 != null">
+        Size1 = #{size1,jdbcType=INTEGER},
+      </if>
+      <if test="size2 != null">
+        Size2 = #{size2,jdbcType=INTEGER},
+      </if>
+      <if test="size3 != null">
+        Size3 = #{size3,jdbcType=INTEGER},
+      </if>
+      <if test="size4 != null">
+        Size4 = #{size4,jdbcType=INTEGER},
+      </if>
+      <if test="size5 != null">
+        Size5 = #{size5,jdbcType=INTEGER},
+      </if>
+      <if test="size6 != null">
+        Size6 = #{size6,jdbcType=INTEGER},
+      </if>
+      <if test="size7 != null">
+        Size7 = #{size7,jdbcType=INTEGER},
+      </if>
+      <if test="size8 != null">
+        Size8 = #{size8,jdbcType=INTEGER},
+      </if>
+      <if test="size9 != null">
+        Size9 = #{size9,jdbcType=INTEGER},
+      </if>
+      <if test="size10 != null">
+        Size10 = #{size10,jdbcType=INTEGER},
+      </if>
+      <if test="total != null">
+        Total = #{total,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.seiei.gmerp.bean.ProofingColor">
+    update PDM_Proofing_Color
+    set Serialno = #{serialno,jdbcType=VARCHAR},
+      BUser = #{buser,jdbcType=VARCHAR},
+      BTime = #{btime,jdbcType=TIMESTAMP},
+      EUser = #{euser,jdbcType=VARCHAR},
+      ETime = #{etime,jdbcType=TIMESTAMP},
+      Memodl = #{memodl,jdbcType=VARCHAR},
+      D_sn = #{dSn,jdbcType=INTEGER},
+      Color = #{color,jdbcType=VARCHAR},
+      ColorNo = #{colorno,jdbcType=VARCHAR},
+      FixColorB = #{fixcolorb,jdbcType=VARCHAR},
+      FixColorNoB = #{fixcolornob,jdbcType=VARCHAR},
+      FixColorC = #{fixcolorc,jdbcType=VARCHAR},
+      FixColorNoC = #{fixcolornoc,jdbcType=VARCHAR},
+      FixColorD = #{fixcolord,jdbcType=VARCHAR},
+      FixColorNoD = #{fixcolornod,jdbcType=VARCHAR},
+      FixColorE = #{fixcolore,jdbcType=VARCHAR},
+      FixColorNoE = #{fixcolornoe,jdbcType=VARCHAR},
+      FixColorF = #{fixcolorf,jdbcType=VARCHAR},
+      FixColorNoF = #{fixcolornof,jdbcType=VARCHAR},
+      FixColorG = #{fixcolorg,jdbcType=VARCHAR},
+      FixColorNoG = #{fixcolornog,jdbcType=VARCHAR},
+      FixColorH = #{fixcolorh,jdbcType=VARCHAR},
+      FixColorNoH = #{fixcolornoh,jdbcType=VARCHAR},
+      Size1 = #{size1,jdbcType=INTEGER},
+      Size2 = #{size2,jdbcType=INTEGER},
+      Size3 = #{size3,jdbcType=INTEGER},
+      Size4 = #{size4,jdbcType=INTEGER},
+      Size5 = #{size5,jdbcType=INTEGER},
+      Size6 = #{size6,jdbcType=INTEGER},
+      Size7 = #{size7,jdbcType=INTEGER},
+      Size8 = #{size8,jdbcType=INTEGER},
+      Size9 = #{size9,jdbcType=INTEGER},
+      Size10 = #{size10,jdbcType=INTEGER},
+      Total = #{total,jdbcType=INTEGER}
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectColorBySerialno" resultType="string" parameterType="string">
+    select Color
+    from
+    PDM_Proofing_Color
+    where
+    Serialno = #{serialno}
+  </select>
+</mapper>

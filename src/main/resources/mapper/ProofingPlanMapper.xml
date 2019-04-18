@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.seiei.gmerp.dao.ProofingPlanMapper">
+  <resultMap id="BaseResultMap" type="top.seiei.gmerp.bean.ProofingPlan">
+    <result column="serialno" jdbcType="VARCHAR" property="serialno" />
+    <result column="BillNo" jdbcType="VARCHAR" property="billno" />
+    <result column="BillDate" jdbcType="TIMESTAMP" property="billdate" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="NodeName" jdbcType="VARCHAR" property="nodename" />
+    <result column="CustName" jdbcType="VARCHAR" property="custname" />
+    <result column="Styleno" jdbcType="VARCHAR" property="styleno" />
+    <result column="ProductName" jdbcType="VARCHAR" property="productname" />
+    <result column="Type" jdbcType="VARCHAR" property="type" />
+    <result column="Deadline" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="ProductClassification" jdbcType="VARCHAR" property="productclassification" />
+    <result column="Season" jdbcType="VARCHAR" property="season" />
+    <result column="Series" jdbcType="VARCHAR" property="series" />
+    <result column="MaterialName" jdbcType="VARCHAR" property="materialname" />
+    <result column="Quantity" jdbcType="INTEGER" property="quantity" />
+    <result column="imageurl" jdbcType="VARCHAR" property="imageurl" />
+    <result column="imageurl1" jdbcType="VARCHAR" property="imageurl1" />
+    <result column="Size1" jdbcType="VARCHAR" property="size1" />
+    <result column="Size2" jdbcType="VARCHAR" property="size2" />
+    <result column="Size3" jdbcType="VARCHAR" property="size3" />
+    <result column="Size4" jdbcType="VARCHAR" property="size4" />
+    <result column="Size5" jdbcType="VARCHAR" property="size5" />
+    <result column="Size6" jdbcType="VARCHAR" property="size6" />
+    <result column="Size7" jdbcType="VARCHAR" property="size7" />
+    <result column="Size8" jdbcType="VARCHAR" property="size8" />
+    <result column="Size9" jdbcType="VARCHAR" property="size9" />
+    <result column="Size10" jdbcType="VARCHAR" property="size10" />
+    <result column="TechnicalPattern" jdbcType="VARCHAR" property="technicalpattern" />
+    <result column="TechnicalPatternDt" jdbcType="TIMESTAMP" property="technicalpatterndt" />
+    <result column="TechnicalPatternRealDt" jdbcType="TIMESTAMP" property="technicalpatternrealdt" />
+    <result column="guid" jdbcType="CHAR" property="guid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+      serialno, BillNo, BillDate,
+      Code, NodeName, CustName,
+      Styleno, ProductName, Type,
+      Deadline, ProductClassification, Season,
+      Series, MaterialName, Quantity,
+      imageurl, imageurl1, Size1,
+      Size2, Size3, Size4,
+      Size5, Size6, Size7,
+      Size8, Size9, Size10,
+      TechnicalPattern, TechnicalPatternDt,
+      TechnicalPatternRealDt, guid
+    </sql>
+  <insert id="insert" parameterType="top.seiei.gmerp.bean.ProofingPlan">
+    insert into v_PDM_Proofing_Plan (serialno, BillNo, BillDate, 
+      Code, NodeName, CustName, 
+      Styleno, ProductName, Type, 
+      Deadline, ProductClassification, Season, 
+      Series, MaterialName, Quantity, 
+      imageurl, imageurl1, Size1, 
+      Size2, Size3, Size4, 
+      Size5, Size6, Size7, 
+      Size8, Size9, Size10, 
+      TechnicalPattern, TechnicalPatternDt, 
+      TechnicalPatternRealDt, guid)
+    values (#{serialno,jdbcType=VARCHAR}, #{billno,jdbcType=VARCHAR}, #{billdate,jdbcType=TIMESTAMP}, 
+      #{code,jdbcType=VARCHAR}, #{nodename,jdbcType=VARCHAR}, #{custname,jdbcType=VARCHAR}, 
+      #{styleno,jdbcType=VARCHAR}, #{productname,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, 
+      #{deadline,jdbcType=TIMESTAMP}, #{productclassification,jdbcType=VARCHAR}, #{season,jdbcType=VARCHAR}, 
+      #{series,jdbcType=VARCHAR}, #{materialname,jdbcType=VARCHAR}, #{quantity,jdbcType=INTEGER}, 
+      #{imageurl,jdbcType=VARCHAR}, #{imageurl1,jdbcType=VARCHAR}, #{size1,jdbcType=VARCHAR}, 
+      #{size2,jdbcType=VARCHAR}, #{size3,jdbcType=VARCHAR}, #{size4,jdbcType=VARCHAR}, 
+      #{size5,jdbcType=VARCHAR}, #{size6,jdbcType=VARCHAR}, #{size7,jdbcType=VARCHAR}, 
+      #{size8,jdbcType=VARCHAR}, #{size9,jdbcType=VARCHAR}, #{size10,jdbcType=VARCHAR}, 
+      #{technicalpattern,jdbcType=VARCHAR}, #{technicalpatterndt,jdbcType=TIMESTAMP}, 
+      #{technicalpatternrealdt,jdbcType=TIMESTAMP}, #{guid,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="top.seiei.gmerp.bean.ProofingPlan">
+    insert into v_PDM_Proofing_Plan
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        serialno,
+      </if>
+      <if test="billno != null">
+        BillNo,
+      </if>
+      <if test="billdate != null">
+        BillDate,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="nodename != null">
+        NodeName,
+      </if>
+      <if test="custname != null">
+        CustName,
+      </if>
+      <if test="styleno != null">
+        Styleno,
+      </if>
+      <if test="productname != null">
+        ProductName,
+      </if>
+      <if test="type != null">
+        Type,
+      </if>
+      <if test="deadline != null">
+        Deadline,
+      </if>
+      <if test="productclassification != null">
+        ProductClassification,
+      </if>
+      <if test="season != null">
+        Season,
+      </if>
+      <if test="series != null">
+        Series,
+      </if>
+      <if test="materialname != null">
+        MaterialName,
+      </if>
+      <if test="quantity != null">
+        Quantity,
+      </if>
+      <if test="imageurl != null">
+        imageurl,
+      </if>
+      <if test="imageurl1 != null">
+        imageurl1,
+      </if>
+      <if test="size1 != null">
+        Size1,
+      </if>
+      <if test="size2 != null">
+        Size2,
+      </if>
+      <if test="size3 != null">
+        Size3,
+      </if>
+      <if test="size4 != null">
+        Size4,
+      </if>
+      <if test="size5 != null">
+        Size5,
+      </if>
+      <if test="size6 != null">
+        Size6,
+      </if>
+      <if test="size7 != null">
+        Size7,
+      </if>
+      <if test="size8 != null">
+        Size8,
+      </if>
+      <if test="size9 != null">
+        Size9,
+      </if>
+      <if test="size10 != null">
+        Size10,
+      </if>
+      <if test="technicalpattern != null">
+        TechnicalPattern,
+      </if>
+      <if test="technicalpatterndt != null">
+        TechnicalPatternDt,
+      </if>
+      <if test="technicalpatternrealdt != null">
+        TechnicalPatternRealDt,
+      </if>
+      <if test="guid != null">
+        guid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="billno != null">
+        #{billno,jdbcType=VARCHAR},
+      </if>
+      <if test="billdate != null">
+        #{billdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="nodename != null">
+        #{nodename,jdbcType=VARCHAR},
+      </if>
+      <if test="custname != null">
+        #{custname,jdbcType=VARCHAR},
+      </if>
+      <if test="styleno != null">
+        #{styleno,jdbcType=VARCHAR},
+      </if>
+      <if test="productname != null">
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="productclassification != null">
+        #{productclassification,jdbcType=VARCHAR},
+      </if>
+      <if test="season != null">
+        #{season,jdbcType=VARCHAR},
+      </if>
+      <if test="series != null">
+        #{series,jdbcType=VARCHAR},
+      </if>
+      <if test="materialname != null">
+        #{materialname,jdbcType=VARCHAR},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=INTEGER},
+      </if>
+      <if test="imageurl != null">
+        #{imageurl,jdbcType=VARCHAR},
+      </if>
+      <if test="imageurl1 != null">
+        #{imageurl1,jdbcType=VARCHAR},
+      </if>
+      <if test="size1 != null">
+        #{size1,jdbcType=VARCHAR},
+      </if>
+      <if test="size2 != null">
+        #{size2,jdbcType=VARCHAR},
+      </if>
+      <if test="size3 != null">
+        #{size3,jdbcType=VARCHAR},
+      </if>
+      <if test="size4 != null">
+        #{size4,jdbcType=VARCHAR},
+      </if>
+      <if test="size5 != null">
+        #{size5,jdbcType=VARCHAR},
+      </if>
+      <if test="size6 != null">
+        #{size6,jdbcType=VARCHAR},
+      </if>
+      <if test="size7 != null">
+        #{size7,jdbcType=VARCHAR},
+      </if>
+      <if test="size8 != null">
+        #{size8,jdbcType=VARCHAR},
+      </if>
+      <if test="size9 != null">
+        #{size9,jdbcType=VARCHAR},
+      </if>
+      <if test="size10 != null">
+        #{size10,jdbcType=VARCHAR},
+      </if>
+      <if test="technicalpattern != null">
+        #{technicalpattern,jdbcType=VARCHAR},
+      </if>
+      <if test="technicalpatterndt != null">
+        #{technicalpatterndt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="technicalpatternrealdt != null">
+        #{technicalpatternrealdt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="guid != null">
+        #{guid,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+    <select id="selectByBillno" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from
+        v_PDM_Proofing_Plan
+        where
+        billno = #{billno}
+    </select>
+  <select id="selectBillnoGroupByBillno" resultType="String">
+    select
+    billno
+    from
+    v_PDM_Proofing_Plan
+    group by
+    billno,
+    Deadline
+    ORDER BY
+    Deadline
+  </select>
+</mapper>

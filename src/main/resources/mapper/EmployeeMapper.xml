@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.seiei.gmerp.dao.EmployeeMapper">
+  <resultMap id="BaseResultMap" type="top.seiei.gmerp.bean.Employee">
+    <id column="Id" jdbcType="VARCHAR" property="id" />
+    <result column="Serialno" jdbcType="VARCHAR" property="serialno" />
+    <result column="Del" jdbcType="BIT" property="del" />
+    <result column="BUser" jdbcType="VARCHAR" property="buser" />
+    <result column="BTime" jdbcType="TIMESTAMP" property="btime" />
+    <result column="EUser" jdbcType="VARCHAR" property="euser" />
+    <result column="ETime" jdbcType="TIMESTAMP" property="etime" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="TypeCode" jdbcType="VARCHAR" property="typecode" />
+    <result column="MnemonicCode" jdbcType="VARCHAR" property="mnemoniccode" />
+    <result column="Memo" jdbcType="VARCHAR" property="memo" />
+    <result column="Tel" jdbcType="VARCHAR" property="tel" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="Job" jdbcType="VARCHAR" property="job" />
+    <result column="Nativeplace" jdbcType="VARCHAR" property="nativeplace" />
+    <result column="BirthDate" jdbcType="TIMESTAMP" property="birthdate" />
+    <result column="Sex" jdbcType="VARCHAR" property="sex" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="Idhandledate" jdbcType="TIMESTAMP" property="idhandledate" />
+    <result column="Idenddate" jdbcType="TIMESTAMP" property="idenddate" />
+    <result column="IDNo" jdbcType="VARCHAR" property="idno" />
+    <result column="Education" jdbcType="VARCHAR" property="education" />
+    <result column="JoinDate" jdbcType="TIMESTAMP" property="joindate" />
+    <result column="Married" jdbcType="BIT" property="married" />
+    <result column="ZipCode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="SalaryKind" jdbcType="VARCHAR" property="salarykind" />
+    <result column="BasicSalary" jdbcType="NUMERIC" property="basicsalary" />
+    <result column="IsBank" jdbcType="BIT" property="isbank" />
+    <result column="AccountNo" jdbcType="VARCHAR" property="accountno" />
+    <result column="JoinRoute" jdbcType="VARCHAR" property="joinroute" />
+    <result column="PositiveDate" jdbcType="TIMESTAMP" property="positivedate" />
+    <result column="ContractDateS" jdbcType="TIMESTAMP" property="contractdates" />
+    <result column="ContractDateE" jdbcType="TIMESTAMP" property="contractdatee" />
+    <result column="AppLeaveDate" jdbcType="TIMESTAMP" property="appleavedate" />
+    <result column="LeaveDate" jdbcType="TIMESTAMP" property="leavedate" />
+    <result column="LeaveReason" jdbcType="VARCHAR" property="leavereason" />
+    <result column="FireType" jdbcType="VARCHAR" property="firetype" />
+    <result column="Linker" jdbcType="VARCHAR" property="linker" />
+    <result column="LinkerTel" jdbcType="VARCHAR" property="linkertel" />
+    <result column="LinkerRelationship" jdbcType="VARCHAR" property="linkerrelationship" />
+    <result column="LinkerAddress" jdbcType="VARCHAR" property="linkeraddress" />
+    <result column="WorkState" jdbcType="VARCHAR" property="workstate" />
+    <result column="IDCardNo" jdbcType="VARCHAR" property="idcardno" />
+    <result column="Nation" jdbcType="VARCHAR" property="nation" />
+    <result column="Political" jdbcType="VARCHAR" property="political" />
+    <result column="Healthy" jdbcType="VARCHAR" property="healthy" />
+    <result column="WorkGroup" jdbcType="VARCHAR" property="workgroup" />
+    <result column="WorkShop" jdbcType="VARCHAR" property="workshop" />
+    <result column="WorkSite" jdbcType="VARCHAR" property="worksite" />
+    <result column="WorkPos" jdbcType="VARCHAR" property="workpos" />
+    <result column="ShareGroup" jdbcType="VARCHAR" property="sharegroup" />
+    <result column="WorkLine" jdbcType="VARCHAR" property="workline" />
+    <result column="WorkType" jdbcType="VARCHAR" property="worktype" />
+    <result column="AType" jdbcType="VARCHAR" property="atype" />
+    <result column="ContractType" jdbcType="VARCHAR" property="contracttype" />
+    <result column="Classes" jdbcType="VARCHAR" property="classes" />
+    <result column="SecurityDateS" jdbcType="TIMESTAMP" property="securitydates" />
+    <result column="SecurityDateE" jdbcType="TIMESTAMP" property="securitydatee" />
+    <result column="UseType" jdbcType="VARCHAR" property="usetype" />
+    <result column="WorkLevel" jdbcType="VARCHAR" property="worklevel" />
+    <result column="SalaryM" jdbcType="NUMERIC" property="salarym" />
+    <result column="SalaryHour" jdbcType="NUMERIC" property="salaryhour" />
+    <result column="FoodAllowance" jdbcType="NUMERIC" property="foodallowance" />
+    <result column="OTAllowance" jdbcType="NUMERIC" property="otallowance" />
+    <result column="EfficiencyAllowance" jdbcType="NUMERIC" property="efficiencyallowance" />
+    <result column="Bonus" jdbcType="NUMERIC" property="bonus" />
+    <result column="BonusPer" jdbcType="NUMERIC" property="bonusper" />
+    <result column="IsPerform" jdbcType="BIT" property="isperform" />
+    <result column="IsProduct" jdbcType="BIT" property="isproduct" />
+    <result column="IsYearEnd" jdbcType="BIT" property="isyearend" />
+    <result column="IsMeal" jdbcType="BIT" property="ismeal" />
+    <result column="IsLive" jdbcType="BIT" property="islive" />
+    <result column="IsWorkOver" jdbcType="BIT" property="isworkover" />
+    <result column="Dept" jdbcType="VARCHAR" property="dept" />
+    <result column="Marry" jdbcType="VARCHAR" property="marry" />
+    <result column="IsTemporary" jdbcType="BIT" property="istemporary" />
+    <result column="PerformanceSalary" jdbcType="NUMERIC" property="performancesalary" />
+    <result column="OtherSalary" jdbcType="NUMERIC" property="othersalary" />
+    <result column="ProductRate" jdbcType="NUMERIC" property="productrate" />
+    <result column="PositionBase" jdbcType="NUMERIC" property="positionbase" />
+    <result column="Checked" jdbcType="BIT" property="checked" />
+    <result column="Checker" jdbcType="VARCHAR" property="checker" />
+    <result column="CheckDate" jdbcType="TIMESTAMP" property="checkdate" />
+    <result column="HRChanged" jdbcType="BIT" property="hrchanged" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="top.seiei.gmerp.bean.Employee">
+    <result column="img" jdbcType="LONGVARBINARY" property="img" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Id, Serialno, Del, BUser, BTime, EUser, ETime, Code, Name, TypeCode, MnemonicCode, 
+    Memo, Tel, Phone, Job, Nativeplace, BirthDate, Sex, Address, Idhandledate, Idenddate, 
+    IDNo, Education, JoinDate, Married, ZipCode, SalaryKind, BasicSalary, IsBank, AccountNo, 
+    JoinRoute, PositiveDate, ContractDateS, ContractDateE, AppLeaveDate, LeaveDate, LeaveReason, 
+    FireType, Linker, LinkerTel, LinkerRelationship, LinkerAddress, WorkState, IDCardNo, 
+    Nation, Political, Healthy, WorkGroup, WorkShop, WorkSite, WorkPos, ShareGroup, WorkLine, 
+    WorkType, AType, ContractType, Classes, SecurityDateS, SecurityDateE, UseType, WorkLevel, 
+    SalaryM, SalaryHour, FoodAllowance, OTAllowance, EfficiencyAllowance, Bonus, BonusPer, 
+    IsPerform, IsProduct, IsYearEnd, IsMeal, IsLive, IsWorkOver, Dept, Marry, IsTemporary, 
+    PerformanceSalary, OtherSalary, ProductRate, PositionBase, Checked, Checker, CheckDate, 
+    HRChanged
+  </sql>
+  <sql id="Blob_Column_List">
+    img
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_SYEmployee
+    where Id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_SYEmployee
+    where Id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="top.seiei.gmerp.bean.Employee">
+    insert into t_SYEmployee (Id, Serialno, Del, 
+      BUser, BTime, EUser, 
+      ETime, Code, Name, 
+      TypeCode, MnemonicCode, Memo, 
+      Tel, Phone, Job, Nativeplace, 
+      BirthDate, Sex, Address, 
+      Idhandledate, Idenddate, IDNo, 
+      Education, JoinDate, Married, 
+      ZipCode, SalaryKind, BasicSalary, 
+      IsBank, AccountNo, JoinRoute, 
+      PositiveDate, ContractDateS, ContractDateE, 
+      AppLeaveDate, LeaveDate, LeaveReason, 
+      FireType, Linker, LinkerTel, 
+      LinkerRelationship, LinkerAddress, WorkState, 
+      IDCardNo, Nation, Political, 
+      Healthy, WorkGroup, WorkShop, 
+      WorkSite, WorkPos, ShareGroup, 
+      WorkLine, WorkType, AType, 
+      ContractType, Classes, SecurityDateS, 
+      SecurityDateE, UseType, WorkLevel, 
+      SalaryM, SalaryHour, FoodAllowance, 
+      OTAllowance, EfficiencyAllowance, Bonus, 
+      BonusPer, IsPerform, IsProduct, 
+      IsYearEnd, IsMeal, IsLive, IsWorkOver, 
+      Dept, Marry, IsTemporary, 
+      PerformanceSalary, OtherSalary, ProductRate, 
+      PositionBase, Checked, Checker, 
+      CheckDate, HRChanged, img
+      )
+    values (#{id,jdbcType=VARCHAR}, #{serialno,jdbcType=VARCHAR}, #{del,jdbcType=BIT}, 
+      #{buser,jdbcType=VARCHAR}, #{btime,jdbcType=TIMESTAMP}, #{euser,jdbcType=VARCHAR}, 
+      #{etime,jdbcType=TIMESTAMP}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{typecode,jdbcType=VARCHAR}, #{mnemoniccode,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, #{nativeplace,jdbcType=VARCHAR}, 
+      #{birthdate,jdbcType=TIMESTAMP}, #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{idhandledate,jdbcType=TIMESTAMP}, #{idenddate,jdbcType=TIMESTAMP}, #{idno,jdbcType=VARCHAR}, 
+      #{education,jdbcType=VARCHAR}, #{joindate,jdbcType=TIMESTAMP}, #{married,jdbcType=BIT}, 
+      #{zipcode,jdbcType=VARCHAR}, #{salarykind,jdbcType=VARCHAR}, #{basicsalary,jdbcType=NUMERIC}, 
+      #{isbank,jdbcType=BIT}, #{accountno,jdbcType=VARCHAR}, #{joinroute,jdbcType=VARCHAR}, 
+      #{positivedate,jdbcType=TIMESTAMP}, #{contractdates,jdbcType=TIMESTAMP}, #{contractdatee,jdbcType=TIMESTAMP}, 
+      #{appleavedate,jdbcType=TIMESTAMP}, #{leavedate,jdbcType=TIMESTAMP}, #{leavereason,jdbcType=VARCHAR}, 
+      #{firetype,jdbcType=VARCHAR}, #{linker,jdbcType=VARCHAR}, #{linkertel,jdbcType=VARCHAR}, 
+      #{linkerrelationship,jdbcType=VARCHAR}, #{linkeraddress,jdbcType=VARCHAR}, #{workstate,jdbcType=VARCHAR}, 
+      #{idcardno,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, #{political,jdbcType=VARCHAR}, 
+      #{healthy,jdbcType=VARCHAR}, #{workgroup,jdbcType=VARCHAR}, #{workshop,jdbcType=VARCHAR}, 
+      #{worksite,jdbcType=VARCHAR}, #{workpos,jdbcType=VARCHAR}, #{sharegroup,jdbcType=VARCHAR}, 
+      #{workline,jdbcType=VARCHAR}, #{worktype,jdbcType=VARCHAR}, #{atype,jdbcType=VARCHAR}, 
+      #{contracttype,jdbcType=VARCHAR}, #{classes,jdbcType=VARCHAR}, #{securitydates,jdbcType=TIMESTAMP}, 
+      #{securitydatee,jdbcType=TIMESTAMP}, #{usetype,jdbcType=VARCHAR}, #{worklevel,jdbcType=VARCHAR}, 
+      #{salarym,jdbcType=NUMERIC}, #{salaryhour,jdbcType=NUMERIC}, #{foodallowance,jdbcType=NUMERIC}, 
+      #{otallowance,jdbcType=NUMERIC}, #{efficiencyallowance,jdbcType=NUMERIC}, #{bonus,jdbcType=NUMERIC}, 
+      #{bonusper,jdbcType=NUMERIC}, #{isperform,jdbcType=BIT}, #{isproduct,jdbcType=BIT}, 
+      #{isyearend,jdbcType=BIT}, #{ismeal,jdbcType=BIT}, #{islive,jdbcType=BIT}, #{isworkover,jdbcType=BIT}, 
+      #{dept,jdbcType=VARCHAR}, #{marry,jdbcType=VARCHAR}, #{istemporary,jdbcType=BIT}, 
+      #{performancesalary,jdbcType=NUMERIC}, #{othersalary,jdbcType=NUMERIC}, #{productrate,jdbcType=NUMERIC}, 
+      #{positionbase,jdbcType=NUMERIC}, #{checked,jdbcType=BIT}, #{checker,jdbcType=VARCHAR}, 
+      #{checkdate,jdbcType=TIMESTAMP}, #{hrchanged,jdbcType=BIT}, #{img,jdbcType=LONGVARBINARY}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="top.seiei.gmerp.bean.Employee">
+    insert into t_SYEmployee
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="serialno != null">
+        Serialno,
+      </if>
+      <if test="del != null">
+        Del,
+      </if>
+      <if test="buser != null">
+        BUser,
+      </if>
+      <if test="btime != null">
+        BTime,
+      </if>
+      <if test="euser != null">
+        EUser,
+      </if>
+      <if test="etime != null">
+        ETime,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="name != null">
+        Name,
+      </if>
+      <if test="typecode != null">
+        TypeCode,
+      </if>
+      <if test="mnemoniccode != null">
+        MnemonicCode,
+      </if>
+      <if test="memo != null">
+        Memo,
+      </if>
+      <if test="tel != null">
+        Tel,
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="job != null">
+        Job,
+      </if>
+      <if test="nativeplace != null">
+        Nativeplace,
+      </if>
+      <if test="birthdate != null">
+        BirthDate,
+      </if>
+      <if test="sex != null">
+        Sex,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="idhandledate != null">
+        Idhandledate,
+      </if>
+      <if test="idenddate != null">
+        Idenddate,
+      </if>
+      <if test="idno != null">
+        IDNo,
+      </if>
+      <if test="education != null">
+        Education,
+      </if>
+      <if test="joindate != null">
+        JoinDate,
+      </if>
+      <if test="married != null">
+        Married,
+      </if>
+      <if test="zipcode != null">
+        ZipCode,
+      </if>
+      <if test="salarykind != null">
+        SalaryKind,
+      </if>
+      <if test="basicsalary != null">
+        BasicSalary,
+      </if>
+      <if test="isbank != null">
+        IsBank,
+      </if>
+      <if test="accountno != null">
+        AccountNo,
+      </if>
+      <if test="joinroute != null">
+        JoinRoute,
+      </if>
+      <if test="positivedate != null">
+        PositiveDate,
+      </if>
+      <if test="contractdates != null">
+        ContractDateS,
+      </if>
+      <if test="contractdatee != null">
+        ContractDateE,
+      </if>
+      <if test="appleavedate != null">
+        AppLeaveDate,
+      </if>
+      <if test="leavedate != null">
+        LeaveDate,
+      </if>
+      <if test="leavereason != null">
+        LeaveReason,
+      </if>
+      <if test="firetype != null">
+        FireType,
+      </if>
+      <if test="linker != null">
+        Linker,
+      </if>
+      <if test="linkertel != null">
+        LinkerTel,
+      </if>
+      <if test="linkerrelationship != null">
+        LinkerRelationship,
+      </if>
+      <if test="linkeraddress != null">
+        LinkerAddress,
+      </if>
+      <if test="workstate != null">
+        WorkState,
+      </if>
+      <if test="idcardno != null">
+        IDCardNo,
+      </if>
+      <if test="nation != null">
+        Nation,
+      </if>
+      <if test="political != null">
+        Political,
+      </if>
+      <if test="healthy != null">
+        Healthy,
+      </if>
+      <if test="workgroup != null">
+        WorkGroup,
+      </if>
+      <if test="workshop != null">
+        WorkShop,
+      </if>
+      <if test="worksite != null">
+        WorkSite,
+      </if>
+      <if test="workpos != null">
+        WorkPos,
+      </if>
+      <if test="sharegroup != null">
+        ShareGroup,
+      </if>
+      <if test="workline != null">
+        WorkLine,
+      </if>
+      <if test="worktype != null">
+        WorkType,
+      </if>
+      <if test="atype != null">
+        AType,
+      </if>
+      <if test="contracttype != null">
+        ContractType,
+      </if>
+      <if test="classes != null">
+        Classes,
+      </if>
+      <if test="securitydates != null">
+        SecurityDateS,
+      </if>
+      <if test="securitydatee != null">
+        SecurityDateE,
+      </if>
+      <if test="usetype != null">
+        UseType,
+      </if>
+      <if test="worklevel != null">
+        WorkLevel,
+      </if>
+      <if test="salarym != null">
+        SalaryM,
+      </if>
+      <if test="salaryhour != null">
+        SalaryHour,
+      </if>
+      <if test="foodallowance != null">
+        FoodAllowance,
+      </if>
+      <if test="otallowance != null">
+        OTAllowance,
+      </if>
+      <if test="efficiencyallowance != null">
+        EfficiencyAllowance,
+      </if>
+      <if test="bonus != null">
+        Bonus,
+      </if>
+      <if test="bonusper != null">
+        BonusPer,
+      </if>
+      <if test="isperform != null">
+        IsPerform,
+      </if>
+      <if test="isproduct != null">
+        IsProduct,
+      </if>
+      <if test="isyearend != null">
+        IsYearEnd,
+      </if>
+      <if test="ismeal != null">
+        IsMeal,
+      </if>
+      <if test="islive != null">
+        IsLive,
+      </if>
+      <if test="isworkover != null">
+        IsWorkOver,
+      </if>
+      <if test="dept != null">
+        Dept,
+      </if>
+      <if test="marry != null">
+        Marry,
+      </if>
+      <if test="istemporary != null">
+        IsTemporary,
+      </if>
+      <if test="performancesalary != null">
+        PerformanceSalary,
+      </if>
+      <if test="othersalary != null">
+        OtherSalary,
+      </if>
+      <if test="productrate != null">
+        ProductRate,
+      </if>
+      <if test="positionbase != null">
+        PositionBase,
+      </if>
+      <if test="checked != null">
+        Checked,
+      </if>
+      <if test="checker != null">
+        Checker,
+      </if>
+      <if test="checkdate != null">
+        CheckDate,
+      </if>
+      <if test="hrchanged != null">
+        HRChanged,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="serialno != null">
+        #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=BIT},
+      </if>
+      <if test="buser != null">
+        #{buser,jdbcType=VARCHAR},
+      </if>
+      <if test="btime != null">
+        #{btime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="euser != null">
+        #{euser,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="typecode != null">
+        #{typecode,jdbcType=VARCHAR},
+      </if>
+      <if test="mnemoniccode != null">
+        #{mnemoniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null">
+        #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null">
+        #{birthdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="idhandledate != null">
+        #{idhandledate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idenddate != null">
+        #{idenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idno != null">
+        #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="joindate != null">
+        #{joindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="married != null">
+        #{married,jdbcType=BIT},
+      </if>
+      <if test="zipcode != null">
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="salarykind != null">
+        #{salarykind,jdbcType=VARCHAR},
+      </if>
+      <if test="basicsalary != null">
+        #{basicsalary,jdbcType=NUMERIC},
+      </if>
+      <if test="isbank != null">
+        #{isbank,jdbcType=BIT},
+      </if>
+      <if test="accountno != null">
+        #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="joinroute != null">
+        #{joinroute,jdbcType=VARCHAR},
+      </if>
+      <if test="positivedate != null">
+        #{positivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractdates != null">
+        #{contractdates,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractdatee != null">
+        #{contractdatee,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appleavedate != null">
+        #{appleavedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leavedate != null">
+        #{leavedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leavereason != null">
+        #{leavereason,jdbcType=VARCHAR},
+      </if>
+      <if test="firetype != null">
+        #{firetype,jdbcType=VARCHAR},
+      </if>
+      <if test="linker != null">
+        #{linker,jdbcType=VARCHAR},
+      </if>
+      <if test="linkertel != null">
+        #{linkertel,jdbcType=VARCHAR},
+      </if>
+      <if test="linkerrelationship != null">
+        #{linkerrelationship,jdbcType=VARCHAR},
+      </if>
+      <if test="linkeraddress != null">
+        #{linkeraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="workstate != null">
+        #{workstate,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardno != null">
+        #{idcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null">
+        #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="healthy != null">
+        #{healthy,jdbcType=VARCHAR},
+      </if>
+      <if test="workgroup != null">
+        #{workgroup,jdbcType=VARCHAR},
+      </if>
+      <if test="workshop != null">
+        #{workshop,jdbcType=VARCHAR},
+      </if>
+      <if test="worksite != null">
+        #{worksite,jdbcType=VARCHAR},
+      </if>
+      <if test="workpos != null">
+        #{workpos,jdbcType=VARCHAR},
+      </if>
+      <if test="sharegroup != null">
+        #{sharegroup,jdbcType=VARCHAR},
+      </if>
+      <if test="workline != null">
+        #{workline,jdbcType=VARCHAR},
+      </if>
+      <if test="worktype != null">
+        #{worktype,jdbcType=VARCHAR},
+      </if>
+      <if test="atype != null">
+        #{atype,jdbcType=VARCHAR},
+      </if>
+      <if test="contracttype != null">
+        #{contracttype,jdbcType=VARCHAR},
+      </if>
+      <if test="classes != null">
+        #{classes,jdbcType=VARCHAR},
+      </if>
+      <if test="securitydates != null">
+        #{securitydates,jdbcType=TIMESTAMP},
+      </if>
+      <if test="securitydatee != null">
+        #{securitydatee,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usetype != null">
+        #{usetype,jdbcType=VARCHAR},
+      </if>
+      <if test="worklevel != null">
+        #{worklevel,jdbcType=VARCHAR},
+      </if>
+      <if test="salarym != null">
+        #{salarym,jdbcType=NUMERIC},
+      </if>
+      <if test="salaryhour != null">
+        #{salaryhour,jdbcType=NUMERIC},
+      </if>
+      <if test="foodallowance != null">
+        #{foodallowance,jdbcType=NUMERIC},
+      </if>
+      <if test="otallowance != null">
+        #{otallowance,jdbcType=NUMERIC},
+      </if>
+      <if test="efficiencyallowance != null">
+        #{efficiencyallowance,jdbcType=NUMERIC},
+      </if>
+      <if test="bonus != null">
+        #{bonus,jdbcType=NUMERIC},
+      </if>
+      <if test="bonusper != null">
+        #{bonusper,jdbcType=NUMERIC},
+      </if>
+      <if test="isperform != null">
+        #{isperform,jdbcType=BIT},
+      </if>
+      <if test="isproduct != null">
+        #{isproduct,jdbcType=BIT},
+      </if>
+      <if test="isyearend != null">
+        #{isyearend,jdbcType=BIT},
+      </if>
+      <if test="ismeal != null">
+        #{ismeal,jdbcType=BIT},
+      </if>
+      <if test="islive != null">
+        #{islive,jdbcType=BIT},
+      </if>
+      <if test="isworkover != null">
+        #{isworkover,jdbcType=BIT},
+      </if>
+      <if test="dept != null">
+        #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="marry != null">
+        #{marry,jdbcType=VARCHAR},
+      </if>
+      <if test="istemporary != null">
+        #{istemporary,jdbcType=BIT},
+      </if>
+      <if test="performancesalary != null">
+        #{performancesalary,jdbcType=NUMERIC},
+      </if>
+      <if test="othersalary != null">
+        #{othersalary,jdbcType=NUMERIC},
+      </if>
+      <if test="productrate != null">
+        #{productrate,jdbcType=NUMERIC},
+      </if>
+      <if test="positionbase != null">
+        #{positionbase,jdbcType=NUMERIC},
+      </if>
+      <if test="checked != null">
+        #{checked,jdbcType=BIT},
+      </if>
+      <if test="checker != null">
+        #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        #{checkdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hrchanged != null">
+        #{hrchanged,jdbcType=BIT},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top.seiei.gmerp.bean.Employee">
+    update t_SYEmployee
+    <set>
+      <if test="serialno != null">
+        Serialno = #{serialno,jdbcType=VARCHAR},
+      </if>
+      <if test="del != null">
+        Del = #{del,jdbcType=BIT},
+      </if>
+      <if test="buser != null">
+        BUser = #{buser,jdbcType=VARCHAR},
+      </if>
+      <if test="btime != null">
+        BTime = #{btime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="euser != null">
+        EUser = #{euser,jdbcType=VARCHAR},
+      </if>
+      <if test="etime != null">
+        ETime = #{etime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="typecode != null">
+        TypeCode = #{typecode,jdbcType=VARCHAR},
+      </if>
+      <if test="mnemoniccode != null">
+        MnemonicCode = #{mnemoniccode,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null">
+        Memo = #{memo,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        Tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="job != null">
+        Job = #{job,jdbcType=VARCHAR},
+      </if>
+      <if test="nativeplace != null">
+        Nativeplace = #{nativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null">
+        BirthDate = #{birthdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sex != null">
+        Sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="idhandledate != null">
+        Idhandledate = #{idhandledate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idenddate != null">
+        Idenddate = #{idenddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idno != null">
+        IDNo = #{idno,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        Education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="joindate != null">
+        JoinDate = #{joindate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="married != null">
+        Married = #{married,jdbcType=BIT},
+      </if>
+      <if test="zipcode != null">
+        ZipCode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="salarykind != null">
+        SalaryKind = #{salarykind,jdbcType=VARCHAR},
+      </if>
+      <if test="basicsalary != null">
+        BasicSalary = #{basicsalary,jdbcType=NUMERIC},
+      </if>
+      <if test="isbank != null">
+        IsBank = #{isbank,jdbcType=BIT},
+      </if>
+      <if test="accountno != null">
+        AccountNo = #{accountno,jdbcType=VARCHAR},
+      </if>
+      <if test="joinroute != null">
+        JoinRoute = #{joinroute,jdbcType=VARCHAR},
+      </if>
+      <if test="positivedate != null">
+        PositiveDate = #{positivedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractdates != null">
+        ContractDateS = #{contractdates,jdbcType=TIMESTAMP},
+      </if>
+      <if test="contractdatee != null">
+        ContractDateE = #{contractdatee,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appleavedate != null">
+        AppLeaveDate = #{appleavedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leavedate != null">
+        LeaveDate = #{leavedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="leavereason != null">
+        LeaveReason = #{leavereason,jdbcType=VARCHAR},
+      </if>
+      <if test="firetype != null">
+        FireType = #{firetype,jdbcType=VARCHAR},
+      </if>
+      <if test="linker != null">
+        Linker = #{linker,jdbcType=VARCHAR},
+      </if>
+      <if test="linkertel != null">
+        LinkerTel = #{linkertel,jdbcType=VARCHAR},
+      </if>
+      <if test="linkerrelationship != null">
+        LinkerRelationship = #{linkerrelationship,jdbcType=VARCHAR},
+      </if>
+      <if test="linkeraddress != null">
+        LinkerAddress = #{linkeraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="workstate != null">
+        WorkState = #{workstate,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardno != null">
+        IDCardNo = #{idcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null">
+        Nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="political != null">
+        Political = #{political,jdbcType=VARCHAR},
+      </if>
+      <if test="healthy != null">
+        Healthy = #{healthy,jdbcType=VARCHAR},
+      </if>
+      <if test="workgroup != null">
+        WorkGroup = #{workgroup,jdbcType=VARCHAR},
+      </if>
+      <if test="workshop != null">
+        WorkShop = #{workshop,jdbcType=VARCHAR},
+      </if>
+      <if test="worksite != null">
+        WorkSite = #{worksite,jdbcType=VARCHAR},
+      </if>
+      <if test="workpos != null">
+        WorkPos = #{workpos,jdbcType=VARCHAR},
+      </if>
+      <if test="sharegroup != null">
+        ShareGroup = #{sharegroup,jdbcType=VARCHAR},
+      </if>
+      <if test="workline != null">
+        WorkLine = #{workline,jdbcType=VARCHAR},
+      </if>
+      <if test="worktype != null">
+        WorkType = #{worktype,jdbcType=VARCHAR},
+      </if>
+      <if test="atype != null">
+        AType = #{atype,jdbcType=VARCHAR},
+      </if>
+      <if test="contracttype != null">
+        ContractType = #{contracttype,jdbcType=VARCHAR},
+      </if>
+      <if test="classes != null">
+        Classes = #{classes,jdbcType=VARCHAR},
+      </if>
+      <if test="securitydates != null">
+        SecurityDateS = #{securitydates,jdbcType=TIMESTAMP},
+      </if>
+      <if test="securitydatee != null">
+        SecurityDateE = #{securitydatee,jdbcType=TIMESTAMP},
+      </if>
+      <if test="usetype != null">
+        UseType = #{usetype,jdbcType=VARCHAR},
+      </if>
+      <if test="worklevel != null">
+        WorkLevel = #{worklevel,jdbcType=VARCHAR},
+      </if>
+      <if test="salarym != null">
+        SalaryM = #{salarym,jdbcType=NUMERIC},
+      </if>
+      <if test="salaryhour != null">
+        SalaryHour = #{salaryhour,jdbcType=NUMERIC},
+      </if>
+      <if test="foodallowance != null">
+        FoodAllowance = #{foodallowance,jdbcType=NUMERIC},
+      </if>
+      <if test="otallowance != null">
+        OTAllowance = #{otallowance,jdbcType=NUMERIC},
+      </if>
+      <if test="efficiencyallowance != null">
+        EfficiencyAllowance = #{efficiencyallowance,jdbcType=NUMERIC},
+      </if>
+      <if test="bonus != null">
+        Bonus = #{bonus,jdbcType=NUMERIC},
+      </if>
+      <if test="bonusper != null">
+        BonusPer = #{bonusper,jdbcType=NUMERIC},
+      </if>
+      <if test="isperform != null">
+        IsPerform = #{isperform,jdbcType=BIT},
+      </if>
+      <if test="isproduct != null">
+        IsProduct = #{isproduct,jdbcType=BIT},
+      </if>
+      <if test="isyearend != null">
+        IsYearEnd = #{isyearend,jdbcType=BIT},
+      </if>
+      <if test="ismeal != null">
+        IsMeal = #{ismeal,jdbcType=BIT},
+      </if>
+      <if test="islive != null">
+        IsLive = #{islive,jdbcType=BIT},
+      </if>
+      <if test="isworkover != null">
+        IsWorkOver = #{isworkover,jdbcType=BIT},
+      </if>
+      <if test="dept != null">
+        Dept = #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="marry != null">
+        Marry = #{marry,jdbcType=VARCHAR},
+      </if>
+      <if test="istemporary != null">
+        IsTemporary = #{istemporary,jdbcType=BIT},
+      </if>
+      <if test="performancesalary != null">
+        PerformanceSalary = #{performancesalary,jdbcType=NUMERIC},
+      </if>
+      <if test="othersalary != null">
+        OtherSalary = #{othersalary,jdbcType=NUMERIC},
+      </if>
+      <if test="productrate != null">
+        ProductRate = #{productrate,jdbcType=NUMERIC},
+      </if>
+      <if test="positionbase != null">
+        PositionBase = #{positionbase,jdbcType=NUMERIC},
+      </if>
+      <if test="checked != null">
+        Checked = #{checked,jdbcType=BIT},
+      </if>
+      <if test="checker != null">
+        Checker = #{checker,jdbcType=VARCHAR},
+      </if>
+      <if test="checkdate != null">
+        CheckDate = #{checkdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hrchanged != null">
+        HRChanged = #{hrchanged,jdbcType=BIT},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="top.seiei.gmerp.bean.Employee">
+    update t_SYEmployee
+    set Serialno = #{serialno,jdbcType=VARCHAR},
+      Del = #{del,jdbcType=BIT},
+      BUser = #{buser,jdbcType=VARCHAR},
+      BTime = #{btime,jdbcType=TIMESTAMP},
+      EUser = #{euser,jdbcType=VARCHAR},
+      ETime = #{etime,jdbcType=TIMESTAMP},
+      Code = #{code,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      TypeCode = #{typecode,jdbcType=VARCHAR},
+      MnemonicCode = #{mnemoniccode,jdbcType=VARCHAR},
+      Memo = #{memo,jdbcType=VARCHAR},
+      Tel = #{tel,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      Job = #{job,jdbcType=VARCHAR},
+      Nativeplace = #{nativeplace,jdbcType=VARCHAR},
+      BirthDate = #{birthdate,jdbcType=TIMESTAMP},
+      Sex = #{sex,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      Idhandledate = #{idhandledate,jdbcType=TIMESTAMP},
+      Idenddate = #{idenddate,jdbcType=TIMESTAMP},
+      IDNo = #{idno,jdbcType=VARCHAR},
+      Education = #{education,jdbcType=VARCHAR},
+      JoinDate = #{joindate,jdbcType=TIMESTAMP},
+      Married = #{married,jdbcType=BIT},
+      ZipCode = #{zipcode,jdbcType=VARCHAR},
+      SalaryKind = #{salarykind,jdbcType=VARCHAR},
+      BasicSalary = #{basicsalary,jdbcType=NUMERIC},
+      IsBank = #{isbank,jdbcType=BIT},
+      AccountNo = #{accountno,jdbcType=VARCHAR},
+      JoinRoute = #{joinroute,jdbcType=VARCHAR},
+      PositiveDate = #{positivedate,jdbcType=TIMESTAMP},
+      ContractDateS = #{contractdates,jdbcType=TIMESTAMP},
+      ContractDateE = #{contractdatee,jdbcType=TIMESTAMP},
+      AppLeaveDate = #{appleavedate,jdbcType=TIMESTAMP},
+      LeaveDate = #{leavedate,jdbcType=TIMESTAMP},
+      LeaveReason = #{leavereason,jdbcType=VARCHAR},
+      FireType = #{firetype,jdbcType=VARCHAR},
+      Linker = #{linker,jdbcType=VARCHAR},
+      LinkerTel = #{linkertel,jdbcType=VARCHAR},
+      LinkerRelationship = #{linkerrelationship,jdbcType=VARCHAR},
+      LinkerAddress = #{linkeraddress,jdbcType=VARCHAR},
+      WorkState = #{workstate,jdbcType=VARCHAR},
+      IDCardNo = #{idcardno,jdbcType=VARCHAR},
+      Nation = #{nation,jdbcType=VARCHAR},
+      Political = #{political,jdbcType=VARCHAR},
+      Healthy = #{healthy,jdbcType=VARCHAR},
+      WorkGroup = #{workgroup,jdbcType=VARCHAR},
+      WorkShop = #{workshop,jdbcType=VARCHAR},
+      WorkSite = #{worksite,jdbcType=VARCHAR},
+      WorkPos = #{workpos,jdbcType=VARCHAR},
+      ShareGroup = #{sharegroup,jdbcType=VARCHAR},
+      WorkLine = #{workline,jdbcType=VARCHAR},
+      WorkType = #{worktype,jdbcType=VARCHAR},
+      AType = #{atype,jdbcType=VARCHAR},
+      ContractType = #{contracttype,jdbcType=VARCHAR},
+      Classes = #{classes,jdbcType=VARCHAR},
+      SecurityDateS = #{securitydates,jdbcType=TIMESTAMP},
+      SecurityDateE = #{securitydatee,jdbcType=TIMESTAMP},
+      UseType = #{usetype,jdbcType=VARCHAR},
+      WorkLevel = #{worklevel,jdbcType=VARCHAR},
+      SalaryM = #{salarym,jdbcType=NUMERIC},
+      SalaryHour = #{salaryhour,jdbcType=NUMERIC},
+      FoodAllowance = #{foodallowance,jdbcType=NUMERIC},
+      OTAllowance = #{otallowance,jdbcType=NUMERIC},
+      EfficiencyAllowance = #{efficiencyallowance,jdbcType=NUMERIC},
+      Bonus = #{bonus,jdbcType=NUMERIC},
+      BonusPer = #{bonusper,jdbcType=NUMERIC},
+      IsPerform = #{isperform,jdbcType=BIT},
+      IsProduct = #{isproduct,jdbcType=BIT},
+      IsYearEnd = #{isyearend,jdbcType=BIT},
+      IsMeal = #{ismeal,jdbcType=BIT},
+      IsLive = #{islive,jdbcType=BIT},
+      IsWorkOver = #{isworkover,jdbcType=BIT},
+      Dept = #{dept,jdbcType=VARCHAR},
+      Marry = #{marry,jdbcType=VARCHAR},
+      IsTemporary = #{istemporary,jdbcType=BIT},
+      PerformanceSalary = #{performancesalary,jdbcType=NUMERIC},
+      OtherSalary = #{othersalary,jdbcType=NUMERIC},
+      ProductRate = #{productrate,jdbcType=NUMERIC},
+      PositionBase = #{positionbase,jdbcType=NUMERIC},
+      Checked = #{checked,jdbcType=BIT},
+      Checker = #{checker,jdbcType=VARCHAR},
+      CheckDate = #{checkdate,jdbcType=TIMESTAMP},
+      HRChanged = #{hrchanged,jdbcType=BIT},
+      img = #{img,jdbcType=LONGVARBINARY}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.seiei.gmerp.bean.Employee">
+    update t_SYEmployee
+    set Serialno = #{serialno,jdbcType=VARCHAR},
+      Del = #{del,jdbcType=BIT},
+      BUser = #{buser,jdbcType=VARCHAR},
+      BTime = #{btime,jdbcType=TIMESTAMP},
+      EUser = #{euser,jdbcType=VARCHAR},
+      ETime = #{etime,jdbcType=TIMESTAMP},
+      Code = #{code,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      TypeCode = #{typecode,jdbcType=VARCHAR},
+      MnemonicCode = #{mnemoniccode,jdbcType=VARCHAR},
+      Memo = #{memo,jdbcType=VARCHAR},
+      Tel = #{tel,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      Job = #{job,jdbcType=VARCHAR},
+      Nativeplace = #{nativeplace,jdbcType=VARCHAR},
+      BirthDate = #{birthdate,jdbcType=TIMESTAMP},
+      Sex = #{sex,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      Idhandledate = #{idhandledate,jdbcType=TIMESTAMP},
+      Idenddate = #{idenddate,jdbcType=TIMESTAMP},
+      IDNo = #{idno,jdbcType=VARCHAR},
+      Education = #{education,jdbcType=VARCHAR},
+      JoinDate = #{joindate,jdbcType=TIMESTAMP},
+      Married = #{married,jdbcType=BIT},
+      ZipCode = #{zipcode,jdbcType=VARCHAR},
+      SalaryKind = #{salarykind,jdbcType=VARCHAR},
+      BasicSalary = #{basicsalary,jdbcType=NUMERIC},
+      IsBank = #{isbank,jdbcType=BIT},
+      AccountNo = #{accountno,jdbcType=VARCHAR},
+      JoinRoute = #{joinroute,jdbcType=VARCHAR},
+      PositiveDate = #{positivedate,jdbcType=TIMESTAMP},
+      ContractDateS = #{contractdates,jdbcType=TIMESTAMP},
+      ContractDateE = #{contractdatee,jdbcType=TIMESTAMP},
+      AppLeaveDate = #{appleavedate,jdbcType=TIMESTAMP},
+      LeaveDate = #{leavedate,jdbcType=TIMESTAMP},
+      LeaveReason = #{leavereason,jdbcType=VARCHAR},
+      FireType = #{firetype,jdbcType=VARCHAR},
+      Linker = #{linker,jdbcType=VARCHAR},
+      LinkerTel = #{linkertel,jdbcType=VARCHAR},
+      LinkerRelationship = #{linkerrelationship,jdbcType=VARCHAR},
+      LinkerAddress = #{linkeraddress,jdbcType=VARCHAR},
+      WorkState = #{workstate,jdbcType=VARCHAR},
+      IDCardNo = #{idcardno,jdbcType=VARCHAR},
+      Nation = #{nation,jdbcType=VARCHAR},
+      Political = #{political,jdbcType=VARCHAR},
+      Healthy = #{healthy,jdbcType=VARCHAR},
+      WorkGroup = #{workgroup,jdbcType=VARCHAR},
+      WorkShop = #{workshop,jdbcType=VARCHAR},
+      WorkSite = #{worksite,jdbcType=VARCHAR},
+      WorkPos = #{workpos,jdbcType=VARCHAR},
+      ShareGroup = #{sharegroup,jdbcType=VARCHAR},
+      WorkLine = #{workline,jdbcType=VARCHAR},
+      WorkType = #{worktype,jdbcType=VARCHAR},
+      AType = #{atype,jdbcType=VARCHAR},
+      ContractType = #{contracttype,jdbcType=VARCHAR},
+      Classes = #{classes,jdbcType=VARCHAR},
+      SecurityDateS = #{securitydates,jdbcType=TIMESTAMP},
+      SecurityDateE = #{securitydatee,jdbcType=TIMESTAMP},
+      UseType = #{usetype,jdbcType=VARCHAR},
+      WorkLevel = #{worklevel,jdbcType=VARCHAR},
+      SalaryM = #{salarym,jdbcType=NUMERIC},
+      SalaryHour = #{salaryhour,jdbcType=NUMERIC},
+      FoodAllowance = #{foodallowance,jdbcType=NUMERIC},
+      OTAllowance = #{otallowance,jdbcType=NUMERIC},
+      EfficiencyAllowance = #{efficiencyallowance,jdbcType=NUMERIC},
+      Bonus = #{bonus,jdbcType=NUMERIC},
+      BonusPer = #{bonusper,jdbcType=NUMERIC},
+      IsPerform = #{isperform,jdbcType=BIT},
+      IsProduct = #{isproduct,jdbcType=BIT},
+      IsYearEnd = #{isyearend,jdbcType=BIT},
+      IsMeal = #{ismeal,jdbcType=BIT},
+      IsLive = #{islive,jdbcType=BIT},
+      IsWorkOver = #{isworkover,jdbcType=BIT},
+      Dept = #{dept,jdbcType=VARCHAR},
+      Marry = #{marry,jdbcType=VARCHAR},
+      IsTemporary = #{istemporary,jdbcType=BIT},
+      PerformanceSalary = #{performancesalary,jdbcType=NUMERIC},
+      OtherSalary = #{othersalary,jdbcType=NUMERIC},
+      ProductRate = #{productrate,jdbcType=NUMERIC},
+      PositionBase = #{positionbase,jdbcType=NUMERIC},
+      Checked = #{checked,jdbcType=BIT},
+      Checker = #{checker,jdbcType=VARCHAR},
+      CheckDate = #{checkdate,jdbcType=TIMESTAMP},
+      HRChanged = #{hrchanged,jdbcType=BIT}
+    where Id = #{id,jdbcType=VARCHAR}
+  </update>
+  <select id="selectName" resultType="map">
+    select name, id
+    from
+    t_SYEmployee
+  </select>
+</mapper>

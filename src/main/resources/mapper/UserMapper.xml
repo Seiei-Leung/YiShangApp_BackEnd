@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.seiei.gmerp.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="top.seiei.gmerp.bean.User">
+        <id column="Id" jdbcType="VARCHAR" property="id" />
+        <result column="TypeCode" jdbcType="VARCHAR" property="typecode" />
+        <result column="Code" jdbcType="VARCHAR" property="code" />
+        <result column="EmployeeNo" jdbcType="VARCHAR" property="employeeno" />
+        <result column="EmployeeName" jdbcType="VARCHAR" property="employeename" />
+        <result column="Name" jdbcType="VARCHAR" property="name" />
+        <result column="PW" jdbcType="VARCHAR" property="pw" />
+        <result column="PW2" jdbcType="VARCHAR" property="pw2" />
+        <result column="MnemonicCode" jdbcType="VARCHAR" property="mnemoniccode" />
+        <result column="QueryMons" jdbcType="INTEGER" property="querymons" />
+        <result column="QueryScope" jdbcType="INTEGER" property="queryscope" />
+        <result column="Grade" jdbcType="INTEGER" property="grade" />
+        <result column="IsAdmin" jdbcType="BIT" property="isadmin" />
+        <result column="Del" jdbcType="BIT" property="del" />
+        <result column="BUser" jdbcType="VARCHAR" property="buser" />
+        <result column="BTime" jdbcType="TIMESTAMP" property="btime" />
+        <result column="EUser" jdbcType="VARCHAR" property="euser" />
+        <result column="ETime" jdbcType="TIMESTAMP" property="etime" />
+        <result column="State" jdbcType="INTEGER" property="state" />
+        <result column="LastOnline" jdbcType="TIMESTAMP" property="lastonline" />
+        <result column="LoginIP" jdbcType="VARCHAR" property="loginip" />
+        <result column="LoginOS" jdbcType="INTEGER" property="loginos" />
+        <result column="LoginPort" jdbcType="VARCHAR" property="loginport" />
+        <result column="HeadPicIdx" jdbcType="INTEGER" property="headpicidx" />
+        <result column="SMTP" jdbcType="VARCHAR" property="smtp" />
+        <result column="EmailName" jdbcType="VARCHAR" property="emailname" />
+        <result column="EmailPwd" jdbcType="VARCHAR" property="emailpwd" />
+        <result column="Sex" jdbcType="TINYINT" property="sex" />
+        <result column="isBroadcast" jdbcType="BIT" property="isbroadcast" />
+        <result column="isEditUserData" jdbcType="BIT" property="isedituserdata" />
+        <result column="isSendNotice" jdbcType="BIT" property="issendnotice" />
+        <result column="isSendSMS" jdbcType="BIT" property="issendsms" />
+        <result column="CreateRooms" jdbcType="INTEGER" property="createrooms" />
+        <result column="orderID" jdbcType="INTEGER" property="orderid" />
+        <result column="DeptCode" jdbcType="VARCHAR" property="deptcode" />
+        <result column="birthday" jdbcType="VARCHAR" property="birthday" />
+        <result column="job" jdbcType="VARCHAR" property="job" />
+        <result column="officeTelephone" jdbcType="VARCHAR" property="officetelephone" />
+        <result column="Education" jdbcType="VARCHAR" property="education" />
+        <result column="Post" jdbcType="VARCHAR" property="post" />
+        <result column="school" jdbcType="VARCHAR" property="school" />
+        <result column="MobilePhone" jdbcType="VARCHAR" property="mobilephone" />
+        <result column="UnCheckUser" jdbcType="BIT" property="uncheckuser" />
+        <result column="On_IM_Off" jdbcType="BIT" property="onImOff" />
+        <result column="HideNotice" jdbcType="BIT" property="hidenotice" />
+        <result column="LoginInfo" jdbcType="NVARCHAR" property="logininfo" />
+        <result column="Power" jdbcType="NVARCHAR" property="power" />
+        <result column="NonSelf" jdbcType="BIT" property="nonself" />
+        <result column="CWAccount" jdbcType="VARCHAR" property="cwaccount" />
+        <result column="On_IM_OffTT" jdbcType="BIT" property="onImOfftt" />
+        <result column="WarnNotice" jdbcType="BIT" property="warnnotice" />
+        <result column="CanNotLogin" jdbcType="BIT" property="cannotlogin" />
+    </resultMap>
+    <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="top.seiei.gmerp.bean.UserWithBLOBs">
+        <result column="Vcard" jdbcType="LONGVARCHAR" property="vcard" />
+        <result column="PhotoData" jdbcType="LONGVARBINARY" property="photodata" />
+        <result column="Hometown" jdbcType="LONGVARCHAR" property="hometown" />
+        <result column="adress" jdbcType="LONGVARCHAR" property="adress" />
+        <result column="Memo" jdbcType="LONGVARCHAR" property="memo" />
+    </resultMap>
+     <resultMap id="UserVOMap" type="top.seiei.gmerp.vo.UserVO">
+        <id column="Id" jdbcType="VARCHAR" property="id" />
+        <result column="TypeCode" jdbcType="VARCHAR" property="typeCode" />
+        <result column="Code" jdbcType="VARCHAR" property="code" />
+        <result column="EmployeeNo" jdbcType="VARCHAR" property="employeeno" />
+        <result column="EmployeeName" jdbcType="VARCHAR" property="employeename" />
+        <result column="Name" jdbcType="VARCHAR" property="name" />
+        <result column="PW" jdbcType="VARCHAR" property="pw" />
+    </resultMap>
+    <sql id="Base_Column_List">
+        Id, TypeCode, Code, EmployeeNo, EmployeeName, Name, PW, PW2, MnemonicCode, QueryMons,
+        QueryScope, Grade, IsAdmin, Del, BUser, BTime, EUser, ETime, State, LastOnline, LoginIP,
+        LoginOS, LoginPort, HeadPicIdx, SMTP, EmailName, EmailPwd, Sex, isBroadcast, isEditUserData,
+        isSendNotice, isSendSMS, CreateRooms, orderID, DeptCode, birthday, job, officeTelephone,
+        Education, Post, school, MobilePhone, UnCheckUser, On_IM_Off, HideNotice, LoginInfo,
+        Power, NonSelf, CWAccount, On_IM_OffTT, WarnNotice, CanNotLogin
+    </sql>
+    <sql id="Blob_Column_List">
+        Vcard, PhotoData, Hometown, adress, Memo
+    </sql>
+     <sql id="UserVO_List">
+        Id, TypeCode, Code, EmployeeNo, EmployeeName, Name, PW
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Base_Column_List" />
+        ,
+        <include refid="Blob_Column_List" />
+        from t_SYUsers
+        where Id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete from t_SYUsers
+        where Id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="top.seiei.gmerp.bean.UserWithBLOBs">
+        insert into t_SYUsers (Id, TypeCode, Code,
+        EmployeeNo, EmployeeName, Name,
+        PW, PW2, MnemonicCode,
+        QueryMons, QueryScope, Grade,
+        IsAdmin, Del, BUser, BTime,
+        EUser, ETime, State,
+        LastOnline, LoginIP, LoginOS,
+        LoginPort, HeadPicIdx, SMTP,
+        EmailName, EmailPwd, Sex,
+        isBroadcast, isEditUserData, isSendNotice,
+        isSendSMS, CreateRooms, orderID,
+        DeptCode, birthday, job,
+        officeTelephone, Education, Post,
+        school, MobilePhone, UnCheckUser,
+        On_IM_Off, HideNotice, LoginInfo,
+        Power, NonSelf, CWAccount,
+        On_IM_OffTT, WarnNotice, CanNotLogin,
+        Vcard, PhotoData, Hometown,
+        adress, Memo)
+        values (#{id,jdbcType=VARCHAR}, #{typecode,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR},
+        #{employeeno,jdbcType=VARCHAR}, #{employeename,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+        #{pw,jdbcType=VARCHAR}, #{pw2,jdbcType=VARCHAR}, #{mnemoniccode,jdbcType=VARCHAR},
+        #{querymons,jdbcType=INTEGER}, #{queryscope,jdbcType=INTEGER}, #{grade,jdbcType=INTEGER},
+        #{isadmin,jdbcType=BIT}, #{del,jdbcType=BIT}, #{buser,jdbcType=VARCHAR}, #{btime,jdbcType=TIMESTAMP},
+        #{euser,jdbcType=VARCHAR}, #{etime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER},
+        #{lastonline,jdbcType=TIMESTAMP}, #{loginip,jdbcType=VARCHAR}, #{loginos,jdbcType=INTEGER},
+        #{loginport,jdbcType=VARCHAR}, #{headpicidx,jdbcType=INTEGER}, #{smtp,jdbcType=VARCHAR},
+        #{emailname,jdbcType=VARCHAR}, #{emailpwd,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT},
+        #{isbroadcast,jdbcType=BIT}, #{isedituserdata,jdbcType=BIT}, #{issendnotice,jdbcType=BIT},
+        #{issendsms,jdbcType=BIT}, #{createrooms,jdbcType=INTEGER}, #{orderid,jdbcType=INTEGER},
+        #{deptcode,jdbcType=VARCHAR}, #{birthday,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR},
+        #{officetelephone,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{post,jdbcType=VARCHAR},
+        #{school,jdbcType=VARCHAR}, #{mobilephone,jdbcType=VARCHAR}, #{uncheckuser,jdbcType=BIT},
+        #{onImOff,jdbcType=BIT}, #{hidenotice,jdbcType=BIT}, #{logininfo,jdbcType=NVARCHAR},
+        #{power,jdbcType=NVARCHAR}, #{nonself,jdbcType=BIT}, #{cwaccount,jdbcType=VARCHAR},
+        #{onImOfftt,jdbcType=BIT}, #{warnnotice,jdbcType=BIT}, #{cannotlogin,jdbcType=BIT},
+        #{vcard,jdbcType=LONGVARCHAR}, #{photodata,jdbcType=LONGVARBINARY}, #{hometown,jdbcType=LONGVARCHAR},
+        #{adress,jdbcType=LONGVARCHAR}, #{memo,jdbcType=LONGVARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="top.seiei.gmerp.bean.UserWithBLOBs">
+        insert into t_SYUsers
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                Id,
+            </if>
+            <if test="typecode != null">
+                TypeCode,
+            </if>
+            <if test="code != null">
+                Code,
+            </if>
+            <if test="employeeno != null">
+                EmployeeNo,
+            </if>
+            <if test="employeename != null">
+                EmployeeName,
+            </if>
+            <if test="name != null">
+                Name,
+            </if>
+            <if test="pw != null">
+                PW,
+            </if>
+            <if test="pw2 != null">
+                PW2,
+            </if>
+            <if test="mnemoniccode != null">
+                MnemonicCode,
+            </if>
+            <if test="querymons != null">
+                QueryMons,
+            </if>
+            <if test="queryscope != null">
+                QueryScope,
+            </if>
+            <if test="grade != null">
+                Grade,
+            </if>
+            <if test="isadmin != null">
+                IsAdmin,
+            </if>
+            <if test="del != null">
+                Del,
+            </if>
+            <if test="buser != null">
+                BUser,
+            </if>
+            <if test="btime != null">
+                BTime,
+            </if>
+            <if test="euser != null">
+                EUser,
+            </if>
+            <if test="etime != null">
+                ETime,
+            </if>
+            <if test="state != null">
+                State,
+            </if>
+            <if test="lastonline != null">
+                LastOnline,
+            </if>
+            <if test="loginip != null">
+                LoginIP,
+            </if>
+            <if test="loginos != null">
+                LoginOS,
+            </if>
+            <if test="loginport != null">
+                LoginPort,
+            </if>
+            <if test="headpicidx != null">
+                HeadPicIdx,
+            </if>
+            <if test="smtp != null">
+                SMTP,
+            </if>
+            <if test="emailname != null">
+                EmailName,
+            </if>
+            <if test="emailpwd != null">
+                EmailPwd,
+            </if>
+            <if test="sex != null">
+                Sex,
+            </if>
+            <if test="isbroadcast != null">
+                isBroadcast,
+            </if>
+            <if test="isedituserdata != null">
+                isEditUserData,
+            </if>
+            <if test="issendnotice != null">
+                isSendNotice,
+            </if>
+            <if test="issendsms != null">
+                isSendSMS,
+            </if>
+            <if test="createrooms != null">
+                CreateRooms,
+            </if>
+            <if test="orderid != null">
+                orderID,
+            </if>
+            <if test="deptcode != null">
+                DeptCode,
+            </if>
+            <if test="birthday != null">
+                birthday,
+            </if>
+            <if test="job != null">
+                job,
+            </if>
+            <if test="officetelephone != null">
+                officeTelephone,
+            </if>
+            <if test="education != null">
+                Education,
+            </if>
+            <if test="post != null">
+                Post,
+            </if>
+            <if test="school != null">
+                school,
+            </if>
+            <if test="mobilephone != null">
+                MobilePhone,
+            </if>
+            <if test="uncheckuser != null">
+                UnCheckUser,
+            </if>
+            <if test="onImOff != null">
+                On_IM_Off,
+            </if>
+            <if test="hidenotice != null">
+                HideNotice,
+            </if>
+            <if test="logininfo != null">
+                LoginInfo,
+            </if>
+            <if test="power != null">
+                Power,
+            </if>
+            <if test="nonself != null">
+                NonSelf,
+            </if>
+            <if test="cwaccount != null">
+                CWAccount,
+            </if>
+            <if test="onImOfftt != null">
+                On_IM_OffTT,
+            </if>
+            <if test="warnnotice != null">
+                WarnNotice,
+            </if>
+            <if test="cannotlogin != null">
+                CanNotLogin,
+            </if>
+            <if test="vcard != null">
+                Vcard,
+            </if>
+            <if test="photodata != null">
+                PhotoData,
+            </if>
+            <if test="hometown != null">
+                Hometown,
+            </if>
+            <if test="adress != null">
+                adress,
+            </if>
+            <if test="memo != null">
+                Memo,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="typecode != null">
+                #{typecode,jdbcType=VARCHAR},
+            </if>
+            <if test="code != null">
+                #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="employeeno != null">
+                #{employeeno,jdbcType=VARCHAR},
+            </if>
+            <if test="employeename != null">
+                #{employeename,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="pw != null">
+                #{pw,jdbcType=VARCHAR},
+            </if>
+            <if test="pw2 != null">
+                #{pw2,jdbcType=VARCHAR},
+            </if>
+            <if test="mnemoniccode != null">
+                #{mnemoniccode,jdbcType=VARCHAR},
+            </if>
+            <if test="querymons != null">
+                #{querymons,jdbcType=INTEGER},
+            </if>
+            <if test="queryscope != null">
+                #{queryscope,jdbcType=INTEGER},
+            </if>
+            <if test="grade != null">
+                #{grade,jdbcType=INTEGER},
+            </if>
+            <if test="isadmin != null">
+                #{isadmin,jdbcType=BIT},
+            </if>
+            <if test="del != null">
+                #{del,jdbcType=BIT},
+            </if>
+            <if test="buser != null">
+                #{buser,jdbcType=VARCHAR},
+            </if>
+            <if test="btime != null">
+                #{btime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="euser != null">
+                #{euser,jdbcType=VARCHAR},
+            </if>
+            <if test="etime != null">
+                #{etime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                #{state,jdbcType=INTEGER},
+            </if>
+            <if test="lastonline != null">
+                #{lastonline,jdbcType=TIMESTAMP},
+            </if>
+            <if test="loginip != null">
+                #{loginip,jdbcType=VARCHAR},
+            </if>
+            <if test="loginos != null">
+                #{loginos,jdbcType=INTEGER},
+            </if>
+            <if test="loginport != null">
+                #{loginport,jdbcType=VARCHAR},
+            </if>
+            <if test="headpicidx != null">
+                #{headpicidx,jdbcType=INTEGER},
+            </if>
+            <if test="smtp != null">
+                #{smtp,jdbcType=VARCHAR},
+            </if>
+            <if test="emailname != null">
+                #{emailname,jdbcType=VARCHAR},
+            </if>
+            <if test="emailpwd != null">
+                #{emailpwd,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=TINYINT},
+            </if>
+            <if test="isbroadcast != null">
+                #{isbroadcast,jdbcType=BIT},
+            </if>
+            <if test="isedituserdata != null">
+                #{isedituserdata,jdbcType=BIT},
+            </if>
+            <if test="issendnotice != null">
+                #{issendnotice,jdbcType=BIT},
+            </if>
+            <if test="issendsms != null">
+                #{issendsms,jdbcType=BIT},
+            </if>
+            <if test="createrooms != null">
+                #{createrooms,jdbcType=INTEGER},
+            </if>
+            <if test="orderid != null">
+                #{orderid,jdbcType=INTEGER},
+            </if>
+            <if test="deptcode != null">
+                #{deptcode,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                #{birthday,jdbcType=VARCHAR},
+            </if>
+            <if test="job != null">
+                #{job,jdbcType=VARCHAR},
+            </if>
+            <if test="officetelephone != null">
+                #{officetelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="education != null">
+                #{education,jdbcType=VARCHAR},
+            </if>
+            <if test="post != null">
+                #{post,jdbcType=VARCHAR},
+            </if>
+            <if test="school != null">
+                #{school,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilephone != null">
+                #{mobilephone,jdbcType=VARCHAR},
+            </if>
+            <if test="uncheckuser != null">
+                #{uncheckuser,jdbcType=BIT},
+            </if>
+            <if test="onImOff != null">
+                #{onImOff,jdbcType=BIT},
+            </if>
+            <if test="hidenotice != null">
+                #{hidenotice,jdbcType=BIT},
+            </if>
+            <if test="logininfo != null">
+                #{logininfo,jdbcType=NVARCHAR},
+            </if>
+            <if test="power != null">
+                #{power,jdbcType=NVARCHAR},
+            </if>
+            <if test="nonself != null">
+                #{nonself,jdbcType=BIT},
+            </if>
+            <if test="cwaccount != null">
+                #{cwaccount,jdbcType=VARCHAR},
+            </if>
+            <if test="onImOfftt != null">
+                #{onImOfftt,jdbcType=BIT},
+            </if>
+            <if test="warnnotice != null">
+                #{warnnotice,jdbcType=BIT},
+            </if>
+            <if test="cannotlogin != null">
+                #{cannotlogin,jdbcType=BIT},
+            </if>
+            <if test="vcard != null">
+                #{vcard,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="photodata != null">
+                #{photodata,jdbcType=LONGVARBINARY},
+            </if>
+            <if test="hometown != null">
+                #{hometown,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="adress != null">
+                #{adress,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="memo != null">
+                #{memo,jdbcType=LONGVARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="top.seiei.gmerp.bean.UserWithBLOBs">
+        update t_SYUsers
+        <set>
+            <if test="typecode != null">
+                TypeCode = #{typecode,jdbcType=VARCHAR},
+            </if>
+            <if test="code != null">
+                Code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="employeeno != null">
+                EmployeeNo = #{employeeno,jdbcType=VARCHAR},
+            </if>
+            <if test="employeename != null">
+                EmployeeName = #{employeename,jdbcType=VARCHAR},
+            </if>
+            <if test="name != null">
+                Name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="pw != null">
+                PW = #{pw,jdbcType=VARCHAR},
+            </if>
+            <if test="pw2 != null">
+                PW2 = #{pw2,jdbcType=VARCHAR},
+            </if>
+            <if test="mnemoniccode != null">
+                MnemonicCode = #{mnemoniccode,jdbcType=VARCHAR},
+            </if>
+            <if test="querymons != null">
+                QueryMons = #{querymons,jdbcType=INTEGER},
+            </if>
+            <if test="queryscope != null">
+                QueryScope = #{queryscope,jdbcType=INTEGER},
+            </if>
+            <if test="grade != null">
+                Grade = #{grade,jdbcType=INTEGER},
+            </if>
+            <if test="isadmin != null">
+                IsAdmin = #{isadmin,jdbcType=BIT},
+            </if>
+            <if test="del != null">
+                Del = #{del,jdbcType=BIT},
+            </if>
+            <if test="buser != null">
+                BUser = #{buser,jdbcType=VARCHAR},
+            </if>
+            <if test="btime != null">
+                BTime = #{btime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="euser != null">
+                EUser = #{euser,jdbcType=VARCHAR},
+            </if>
+            <if test="etime != null">
+                ETime = #{etime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="state != null">
+                State = #{state,jdbcType=INTEGER},
+            </if>
+            <if test="lastonline != null">
+                LastOnline = #{lastonline,jdbcType=TIMESTAMP},
+            </if>
+            <if test="loginip != null">
+                LoginIP = #{loginip,jdbcType=VARCHAR},
+            </if>
+            <if test="loginos != null">
+                LoginOS = #{loginos,jdbcType=INTEGER},
+            </if>
+            <if test="loginport != null">
+                LoginPort = #{loginport,jdbcType=VARCHAR},
+            </if>
+            <if test="headpicidx != null">
+                HeadPicIdx = #{headpicidx,jdbcType=INTEGER},
+            </if>
+            <if test="smtp != null">
+                SMTP = #{smtp,jdbcType=VARCHAR},
+            </if>
+            <if test="emailname != null">
+                EmailName = #{emailname,jdbcType=VARCHAR},
+            </if>
+            <if test="emailpwd != null">
+                EmailPwd = #{emailpwd,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                Sex = #{sex,jdbcType=TINYINT},
+            </if>
+            <if test="isbroadcast != null">
+                isBroadcast = #{isbroadcast,jdbcType=BIT},
+            </if>
+            <if test="isedituserdata != null">
+                isEditUserData = #{isedituserdata,jdbcType=BIT},
+            </if>
+            <if test="issendnotice != null">
+                isSendNotice = #{issendnotice,jdbcType=BIT},
+            </if>
+            <if test="issendsms != null">
+                isSendSMS = #{issendsms,jdbcType=BIT},
+            </if>
+            <if test="createrooms != null">
+                CreateRooms = #{createrooms,jdbcType=INTEGER},
+            </if>
+            <if test="orderid != null">
+                orderID = #{orderid,jdbcType=INTEGER},
+            </if>
+            <if test="deptcode != null">
+                DeptCode = #{deptcode,jdbcType=VARCHAR},
+            </if>
+            <if test="birthday != null">
+                birthday = #{birthday,jdbcType=VARCHAR},
+            </if>
+            <if test="job != null">
+                job = #{job,jdbcType=VARCHAR},
+            </if>
+            <if test="officetelephone != null">
+                officeTelephone = #{officetelephone,jdbcType=VARCHAR},
+            </if>
+            <if test="education != null">
+                Education = #{education,jdbcType=VARCHAR},
+            </if>
+            <if test="post != null">
+                Post = #{post,jdbcType=VARCHAR},
+            </if>
+            <if test="school != null">
+                school = #{school,jdbcType=VARCHAR},
+            </if>
+            <if test="mobilephone != null">
+                MobilePhone = #{mobilephone,jdbcType=VARCHAR},
+            </if>
+            <if test="uncheckuser != null">
+                UnCheckUser = #{uncheckuser,jdbcType=BIT},
+            </if>
+            <if test="onImOff != null">
+                On_IM_Off = #{onImOff,jdbcType=BIT},
+            </if>
+            <if test="hidenotice != null">
+                HideNotice = #{hidenotice,jdbcType=BIT},
+            </if>
+            <if test="logininfo != null">
+                LoginInfo = #{logininfo,jdbcType=NVARCHAR},
+            </if>
+            <if test="power != null">
+                Power = #{power,jdbcType=NVARCHAR},
+            </if>
+            <if test="nonself != null">
+                NonSelf = #{nonself,jdbcType=BIT},
+            </if>
+            <if test="cwaccount != null">
+                CWAccount = #{cwaccount,jdbcType=VARCHAR},
+            </if>
+            <if test="onImOfftt != null">
+                On_IM_OffTT = #{onImOfftt,jdbcType=BIT},
+            </if>
+            <if test="warnnotice != null">
+                WarnNotice = #{warnnotice,jdbcType=BIT},
+            </if>
+            <if test="cannotlogin != null">
+                CanNotLogin = #{cannotlogin,jdbcType=BIT},
+            </if>
+            <if test="vcard != null">
+                Vcard = #{vcard,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="photodata != null">
+                PhotoData = #{photodata,jdbcType=LONGVARBINARY},
+            </if>
+            <if test="hometown != null">
+                Hometown = #{hometown,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="adress != null">
+                adress = #{adress,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="memo != null">
+                Memo = #{memo,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where Id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="top.seiei.gmerp.bean.UserWithBLOBs">
+        update t_SYUsers
+        set TypeCode = #{typecode,jdbcType=VARCHAR},
+        Code = #{code,jdbcType=VARCHAR},
+        EmployeeNo = #{employeeno,jdbcType=VARCHAR},
+        EmployeeName = #{employeename,jdbcType=VARCHAR},
+        Name = #{name,jdbcType=VARCHAR},
+        PW = #{pw,jdbcType=VARCHAR},
+        PW2 = #{pw2,jdbcType=VARCHAR},
+        MnemonicCode = #{mnemoniccode,jdbcType=VARCHAR},
+        QueryMons = #{querymons,jdbcType=INTEGER},
+        QueryScope = #{queryscope,jdbcType=INTEGER},
+        Grade = #{grade,jdbcType=INTEGER},
+        IsAdmin = #{isadmin,jdbcType=BIT},
+        Del = #{del,jdbcType=BIT},
+        BUser = #{buser,jdbcType=VARCHAR},
+        BTime = #{btime,jdbcType=TIMESTAMP},
+        EUser = #{euser,jdbcType=VARCHAR},
+        ETime = #{etime,jdbcType=TIMESTAMP},
+        State = #{state,jdbcType=INTEGER},
+        LastOnline = #{lastonline,jdbcType=TIMESTAMP},
+        LoginIP = #{loginip,jdbcType=VARCHAR},
+        LoginOS = #{loginos,jdbcType=INTEGER},
+        LoginPort = #{loginport,jdbcType=VARCHAR},
+        HeadPicIdx = #{headpicidx,jdbcType=INTEGER},
+        SMTP = #{smtp,jdbcType=VARCHAR},
+        EmailName = #{emailname,jdbcType=VARCHAR},
+        EmailPwd = #{emailpwd,jdbcType=VARCHAR},
+        Sex = #{sex,jdbcType=TINYINT},
+        isBroadcast = #{isbroadcast,jdbcType=BIT},
+        isEditUserData = #{isedituserdata,jdbcType=BIT},
+        isSendNotice = #{issendnotice,jdbcType=BIT},
+        isSendSMS = #{issendsms,jdbcType=BIT},
+        CreateRooms = #{createrooms,jdbcType=INTEGER},
+        orderID = #{orderid,jdbcType=INTEGER},
+        DeptCode = #{deptcode,jdbcType=VARCHAR},
+        birthday = #{birthday,jdbcType=VARCHAR},
+        job = #{job,jdbcType=VARCHAR},
+        officeTelephone = #{officetelephone,jdbcType=VARCHAR},
+        Education = #{education,jdbcType=VARCHAR},
+        Post = #{post,jdbcType=VARCHAR},
+        school = #{school,jdbcType=VARCHAR},
+        MobilePhone = #{mobilephone,jdbcType=VARCHAR},
+        UnCheckUser = #{uncheckuser,jdbcType=BIT},
+        On_IM_Off = #{onImOff,jdbcType=BIT},
+        HideNotice = #{hidenotice,jdbcType=BIT},
+        LoginInfo = #{logininfo,jdbcType=NVARCHAR},
+        Power = #{power,jdbcType=NVARCHAR},
+        NonSelf = #{nonself,jdbcType=BIT},
+        CWAccount = #{cwaccount,jdbcType=VARCHAR},
+        On_IM_OffTT = #{onImOfftt,jdbcType=BIT},
+        WarnNotice = #{warnnotice,jdbcType=BIT},
+        CanNotLogin = #{cannotlogin,jdbcType=BIT},
+        Vcard = #{vcard,jdbcType=LONGVARCHAR},
+        PhotoData = #{photodata,jdbcType=LONGVARBINARY},
+        Hometown = #{hometown,jdbcType=LONGVARCHAR},
+        adress = #{adress,jdbcType=LONGVARCHAR},
+        Memo = #{memo,jdbcType=LONGVARCHAR}
+        where Id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="top.seiei.gmerp.bean.User">
+        update t_SYUsers
+        set TypeCode = #{typecode,jdbcType=VARCHAR},
+        Code = #{code,jdbcType=VARCHAR},
+        EmployeeNo = #{employeeno,jdbcType=VARCHAR},
+        EmployeeName = #{employeename,jdbcType=VARCHAR},
+        Name = #{name,jdbcType=VARCHAR},
+        PW = #{pw,jdbcType=VARCHAR},
+        PW2 = #{pw2,jdbcType=VARCHAR},
+        MnemonicCode = #{mnemoniccode,jdbcType=VARCHAR},
+        QueryMons = #{querymons,jdbcType=INTEGER},
+        QueryScope = #{queryscope,jdbcType=INTEGER},
+        Grade = #{grade,jdbcType=INTEGER},
+        IsAdmin = #{isadmin,jdbcType=BIT},
+        Del = #{del,jdbcType=BIT},
+        BUser = #{buser,jdbcType=VARCHAR},
+        BTime = #{btime,jdbcType=TIMESTAMP},
+        EUser = #{euser,jdbcType=VARCHAR},
+        ETime = #{etime,jdbcType=TIMESTAMP},
+        State = #{state,jdbcType=INTEGER},
+        LastOnline = #{lastonline,jdbcType=TIMESTAMP},
+        LoginIP = #{loginip,jdbcType=VARCHAR},
+        LoginOS = #{loginos,jdbcType=INTEGER},
+        LoginPort = #{loginport,jdbcType=VARCHAR},
+        HeadPicIdx = #{headpicidx,jdbcType=INTEGER},
+        SMTP = #{smtp,jdbcType=VARCHAR},
+        EmailName = #{emailname,jdbcType=VARCHAR},
+        EmailPwd = #{emailpwd,jdbcType=VARCHAR},
+        Sex = #{sex,jdbcType=TINYINT},
+        isBroadcast = #{isbroadcast,jdbcType=BIT},
+        isEditUserData = #{isedituserdata,jdbcType=BIT},
+        isSendNotice = #{issendnotice,jdbcType=BIT},
+        isSendSMS = #{issendsms,jdbcType=BIT},
+        CreateRooms = #{createrooms,jdbcType=INTEGER},
+        orderID = #{orderid,jdbcType=INTEGER},
+        DeptCode = #{deptcode,jdbcType=VARCHAR},
+        birthday = #{birthday,jdbcType=VARCHAR},
+        job = #{job,jdbcType=VARCHAR},
+        officeTelephone = #{officetelephone,jdbcType=VARCHAR},
+        Education = #{education,jdbcType=VARCHAR},
+        Post = #{post,jdbcType=VARCHAR},
+        school = #{school,jdbcType=VARCHAR},
+        MobilePhone = #{mobilephone,jdbcType=VARCHAR},
+        UnCheckUser = #{uncheckuser,jdbcType=BIT},
+        On_IM_Off = #{onImOff,jdbcType=BIT},
+        HideNotice = #{hidenotice,jdbcType=BIT},
+        LoginInfo = #{logininfo,jdbcType=NVARCHAR},
+        Power = #{power,jdbcType=NVARCHAR},
+        NonSelf = #{nonself,jdbcType=BIT},
+        CWAccount = #{cwaccount,jdbcType=VARCHAR},
+        On_IM_OffTT = #{onImOfftt,jdbcType=BIT},
+        WarnNotice = #{warnnotice,jdbcType=BIT},
+        CanNotLogin = #{cannotlogin,jdbcType=BIT}
+        where Id = #{id,jdbcType=VARCHAR}
+    </update>
+     <select id="selectById" resultMap="UserVOMap" parameterType="string">
+        select
+        <include refid="UserVO_List" />
+        from
+        t_SYUsers
+        where
+        Id = #{id}
+    </select>
+    <select id="checkByCode" resultType="integer" parameterType="string">
+        select
+        count(id)
+        from
+        t_SYUsers
+        where
+        code = #{code}
+    </select>
+    <select id="selectByCodeAndPW" resultMap="UserVOMap" parameterType="map">
+        select
+        <include refid="UserVO_List" />
+        from
+        t_SYUsers
+        where
+        code = #{code}
+        and
+        pw = #{pw}
+    </select>
+</mapper>
